@@ -1,4 +1,4 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes, ENUM } = require("sequelize");
 const { connection } = require('../../database/index')
 
 const User = connection.define(
@@ -14,6 +14,13 @@ const User = connection.define(
     },
     age: {
       type: DataTypes.INTEGER
+    },
+    password: {
+      type: DataTypes.STRING
+    },
+    role: {
+      type: DataTypes.ENUM('user', 'admin'),
+      defaultValue: 'user'
     }
   },
   {
